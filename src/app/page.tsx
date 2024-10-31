@@ -1,12 +1,9 @@
-"use client"
+"use client";
 import { useState } from "react";
 import SudokuBoard from "../components/SudokuBoard";
-import Image from "next/image";
 
 export default function Home() {
-  const initialBoard: number[][] = Array.from({ length: 9 }, () =>
-    Array(9).fill(0)
-  );
+  const initialBoard: number[][] = Array.from({ length: 9 }, () => Array(9).fill(0));
   const [board, setBoard] = useState<number[][]>(initialBoard);
 
   const handleChange = (row: number, col: number, value: number) => {
@@ -16,13 +13,13 @@ export default function Home() {
   };
 
   return (
-    <>
-      <div className="flex justify-center items-center min-h-screen bg-gray-100">
-        <SudokuBoard board={board} onChange={handleChange} setBoard = {setBoard} />
-      </div>
-    </>
+    <div className="flex flex-col justify-center items-center min-h-screen bg-gray-900 text-white">
+      <h1 className="text-2xl font-bold mb-6 text-center">Sudoku Solver</h1>
+      <SudokuBoard board={board} onChange={handleChange} setBoard={setBoard} />
+    </div>
   );
 }
+
 
 
 
